@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>İade süreci panosu: As-Is / To-Be</title>
+<style>
+:root{--bg:#f7f6f2;--card:#fff;--ink:#1f1e1a;--mute:#6b6a64;--line:#e3e1d8;--acc:#3c3489;--a:#d85a30;--abg:#fbeae4;--t:#0f8a6a;--tbg:#e1f5ee;--hl:#fff6c2;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17161a;--card:#222126;--ink:#efede6;--mute:#a3a198;--line:#37353d;--acc:#b4aef5;--a:#f08a63;--abg:#3a2520;--t:#4fd1a5;--tbg:#15332b;--hl:#3d3a1c}}
+:root[data-theme="dark"]{--bg:#17161a;--card:#222126;--ink:#efede6;--mute:#a3a198;--line:#37353d;--acc:#b4aef5;--a:#f08a63;--abg:#3a2520;--t:#4fd1a5;--tbg:#15332b;--hl:#3d3a1c}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.w{max-width:980px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:24px;margin:0 0 4px}h2{font-size:16px;margin:0 0 12px}
+.m{color:var(--mute);font-size:13px}
+.g{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-bottom:12px}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px}
+.g .c{margin:0}
+.k b{display:block;font-size:26px;color:var(--acc);line-height:1.2}
+.note{background:var(--hl);border-radius:8px;padding:8px 12px;font-size:13px;margin:12px 0}
+button{font:inherit;cursor:pointer}
+.note button{margin-left:8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);padding:2px 8px}
+.r{margin-bottom:14px}
+.b{display:grid;grid-template-columns:48px 1fr 100px;gap:8px;align-items:center;margin:6px 0;font-size:13px}
+.tr{height:14px;background:var(--line);border-radius:7px;overflow:hidden}
+.tr i{display:block;height:100%;border-radius:7px}
+.a{background:var(--a)}.t{background:var(--t)}
+.q span{display:inline-block;background:var(--tbg);border-radius:14px;padding:3px 12px;font-size:13px;margin:4px 6px 0 0}
+.x{border-radius:8px;padding:10px;font-size:14px;margin:8px 0}
+.xa{background:var(--abg)}.xt{background:var(--tbg)}
+.v button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:16px;padding:3px 12px;margin:4px 6px 0 0}
+.v button.on{background:var(--acc);color:var(--card);border-color:var(--acc)}
+label{display:block;font-size:13px;color:var(--mute)}
+input,select{width:100%;font:inherit;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);margin-top:4px}
+</style>
+</head>
+<body>
+<main class="w">
+<h1>İade süreci panosu</h1>
+<div class="m">Online alışveriş iade süreci: As-Is / To-Be, kendi gözlemlerine göre</div>
+<div class="note" id="note">Örnek değerler gösteriliyor (varsayım). Değerleri değiştirerek denemek mümkündür.<button id="clr">Örnekleri temizle</button></div>
+
+<div class="g">
+<div class="c k" id="k1"></div><div class="c k" id="k2"></div><div class="c k" id="k3"></div>
+</div>
+
+<div class="c"><h2>As-Is ve To-Be karşılaştırması</h2><div id="cmp"></div></div>
+
+<div class="c"><h2>Ölçüt girdileri</h2>
+<div class="g">
+<label>İade butonuna tıklama sayısı (As-Is)<input id="in1" type="number" min="0"></label>
+<label>İade talebini açma süresi, saniye (As-Is)<input id="in2" type="number" min="0"></label>
+<label>“Diğer” sebebini seçen oran, % (tahmin)<input id="in3" type="number" min="0" max="100"></label>
+<label>İade kargosu destek sorusu (tahmin)<select id="in5"><option value="">Seç</option><option>Düşük</option><option>Orta</option><option>Yüksek</option></select></label>
+<label>Hedef süre azalışı, % (varsayım)<input id="in4" type="number" min="0" max="100"></label>
+</div></div>
+
+<h2>Bulgular</h2>
+<div class="g" id="fs"></div>
+</main>
+<script>
+const D={clicks:5,secs:24,other:40,support:"Orta",cut:30,v:[0,0,0]},L=["Düşük","Orta","Yüksek"];
+let S={...D};
+try{const r=JSON.parse(localStorage.getItem("iade-dash")||"null");if(r)S={...D,...r}}catch(e){}
+const $=i=>document.getElementById(i),n=v=>v===""||v==null||isNaN(+v)?null:+v;
+const sv=()=>{try{localStorage.setItem("iade-dash",JSON.stringify(S))}catch(e){}};
+const F=[
+{t:"İade talebini başlatma",a:"İade butonu sipariş ekranında diğer işlemlerin arasında kalıyor, müşteri bulmakta zorlanabiliyor.",b:"Sipariş kartında veya detayında ayrı, belirgin bir “İade Et” butonu.",g:"Müşteri talebi daha az tıklamayla açar, destek hattına başvuru azalır.",s:"İade talebi açar"},
+{t:"İade kargosu",a:"İade gönderisi siparişin teslim edildiği firmayla aynı akışta ilerlemiyor.",b:"İade, siparişi teslim eden aynı kargo firmasıyla devam eder, etiket ve kod otomatik oluşur.",g:"Müşteri tanıdık firmayla ilerler, etiket veya kod karışıklığı azalır, takip tek yerden yapılır.",s:"Etiket, kargoya verme ve kargo adımları"},
+{t:"İade sebebi seçme",a:"Sınırlı sayıda sebep var, uygun seçenek yoksa müşteri “Diğer”i seçiyor.",b:"Ürün kategorisine göre ayrıntılı sebep ve alt sebep listesi (örneğin beden uymadı, ürün hasarlı geldi, açıklamayla uyuşmuyor).",g:"Müşteri kendi durumunu doğru anlatır, iade doğru yönlendirilir, satıcı ve site neden verisini analiz edebilir.",s:"İade talebi açar"}];
+function bar(l,u,a,b){
+ if(a==null)return `<div class="r"><b>${l}</b><div class="m">As-Is değerini gir</div></div>`;
+ const m=Math.max(a,b)||1,w=x=>Math.round(x/m*100);
+ return `<div class="r"><b>${l}</b>
+ <div class="b"><span>As-Is</span><div class="tr"><i class="a" style="width:${w(a)}%"></i></div><span>${a} ${u}</span></div>
+ <div class="b"><span>To-Be</span><div class="tr"><i class="t" style="width:${w(b)}%"></i></div><span>≤ ${b} ${u}</span></div></div>`}
+function render(){
+ const c=n(S.clicks),s=n(S.secs),o=n(S.other),cut=n(S.cut)??30,ts=s==null?null:Math.round(s*(1-cut/100)),ok=S.v.filter(x=>x==1).length,sp=L.includes(S.support)?S.support:"—";
+ $("k1").innerHTML=`<b>${ok} / 3</b><span class="m">Doğrulanan bulgu (Evet)</span>`;
+ $("k2").innerHTML=c==null?`<b>—</b><span class="m">Tıklama sayısını gir</span>`:`<b>${c} → ≤ 2</b><span class="m">Hedef 2 tık (varsayım), ${Math.max(c-2,0)} tık daha az</span>`;
+ $("k3").innerHTML=s==null?`<b>—</b><span class="m">Süreyi gir</span>`:`<b>${s} → ≤ ${ts} sn</b><span class="m">${s-ts} sn kazanç, %${cut} azalış varsayımı</span>`;
+ $("cmp").innerHTML=bar("İade butonuna tıklama sayısı","tık",c,2)+bar("İade talebini açma süresi","sn",s,ts)
+  +`<div class="q"><span>“Diğer” oranı: ${o==null?"—":"%"+o} → belirgin şekilde düşük (varsayım)</span><span>Destek sorusu: ${sp} → azalır (varsayım)</span></div>`;
+ $("note").hidden=!(S.clicks==D.clicks&&S.secs==D.secs&&S.other==D.other&&S.support==D.support);
+ $("fs").innerHTML=F.map((f,i)=>`<div class="c"><h2>${i+1}. ${f.t}</h2>
+ <div class="x xa"><b>As-Is</b><br>${f.a}</div><div class="x xt"><b>To-Be</b><br>${f.b}</div>
+ <p class="m">Fayda: ${f.g}</p><p class="m">Şemadaki adım: ${f.s}</p>
+ <div class="v"><span class="m">Doğrulandı mı?</span><br>${["Evet","Kısmen","Hayır"].map((x,j)=>`<button data-i="${i}" data-j="${j+1}" class="${S.v[i]==j+1?"on":""}">${x}</button>`).join("")}</div></div>`).join("");
+}
+for(const [k,id] of [["clicks","in1"],["secs","in2"],["other","in3"],["cut","in4"]]){const e=$(id);e.value=S[k]??"";e.oninput=()=>{S[k]=e.value;sv();render()}}
+$("in5").value=L.includes(S.support)?S.support:"";$("in5").onchange=e=>{S.support=e.target.value;sv();render()};
+$("fs").onclick=e=>{const b=e.target.closest("button");if(!b)return;const i=+b.dataset.i,j=+b.dataset.j;S.v[i]=S.v[i]==j?0:j;sv();render()};
+$("clr").onclick=()=>{S.clicks=S.secs=S.other=S.support="";["in1","in2","in3","in5"].forEach(i=>$(i).value="");sv();render()};
+render();
+</script>
+</body>
+</html>

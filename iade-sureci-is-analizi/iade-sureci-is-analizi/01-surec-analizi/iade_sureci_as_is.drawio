@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="asis-iade" name="As-Is İade Süreci">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="AS-IS: Online alışveriş iade süreci" style="text;html=1;align=left;verticalAlign=middle;fontSize=18;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="8" width="900" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="lane0" value="Müşteri" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fontStyle=1;fontSize=13;fillColor=#EEEDFE;strokeColor=#7F77DD;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="2170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lane1" value="Site" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fontStyle=1;fontSize=13;fillColor=#EEEDFE;strokeColor=#7F77DD;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="2170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lane2" value="Kargo" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fontStyle=1;fontSize=13;fillColor=#EEEDFE;strokeColor=#7F77DD;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="350" width="2170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="lane3" value="Satıcı" style="swimlane;html=1;horizontal=0;startSize=30;whiteSpace=wrap;fontStyle=1;fontSize=13;fillColor=#EEEDFE;strokeColor=#7F77DD;swimlaneFillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="40" y="500" width="2170" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" value="İade kararı verir" style="ellipse;whiteSpace=wrap;html=1;fillColor=#E1F5EE;strokeColor=#0F6E56;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="112" y="107" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="t1" value="İade talebi açar (butonu Siparişlerim sayfasında arar)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;fontColor=#501313;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="85" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t1b" value="İade sebebini sınırlı listeden seçer" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;fontColor=#501313;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="360" y="85" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t2" value="Talebi kaydeder ve satıcıya iletir" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="530" y="235" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t3" value="Talebi inceler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="700" y="535" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g1" value="Onaylandı mı?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#854F0B;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="910" y="545" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="İade reddedildi" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#2C2C2A;strokeWidth=3;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1092" y="557" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="t5" value="Etiket ve kodu gönderir (firma, sipariş kargosundan bağımsız)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;fontColor=#501313;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="235" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t6" value="Ürünü paketler, etiketi yapıştırır, kargo şubesine götürür" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="85" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t7" value="Ürünü teslim alır, satıcıya taşır" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="385" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t8" value="Ürünü teslim alır ve kontrol eder" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1550" y="535" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="g2" value="Ürün uygun mu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FAEEDA;strokeColor=#854F0B;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1760" y="545" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="İade reddedildi" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#2C2C2A;strokeWidth=3;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="1942" y="557" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="t10" value="Para iadesini bankaya başlatır" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1720" y="235" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="t11" value="Paranın hesaba yansımasını bekler" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1890" y="85" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="İade tamamlandı" style="ellipse;whiteSpace=wrap;html=1;fillColor=#F1EFE8;strokeColor=#2C2C2A;strokeWidth=3;fontSize=11;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=#ffffff;" vertex="1" parent="1">
+          <mxGeometry x="2112" y="107" width="36" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="b1" value="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#A32D2D;strokeColor=#A32D2D;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="319" y="74" width="22" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="b2" value="2" style="ellipse;whiteSpace=wrap;html=1;fillColor=#A32D2D;strokeColor=#A32D2D;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1169" y="224" width="22" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="b3" value="3" style="ellipse;whiteSpace=wrap;html=1;fillColor=#A32D2D;strokeColor=#A32D2D;fontColor=#FFFFFF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="489" y="74" width="22" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="edge1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="e1" target="t1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1" target="t1b">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t1b" target="t2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t2" target="t3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t3" target="g1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge6" value="Hayır" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g1" target="e2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge7" value="Evet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g1" target="t5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t5" target="t6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge9" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t6" target="t7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge10" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="t7" target="t8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge11" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t8" target="g2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge12" value="Hayır" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="g2" target="e3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge13" value="Evet" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="g2" target="t10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge14" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="t10" target="t11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=1;strokeWidth=1.5;fontSize=11;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="t11" target="e4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="notes" value="&lt;b&gt;Sorun noktaları (kendi gözlemlerim)&lt;/b&gt;&lt;br&gt;1) İade butonu: sipariş ekranında diğer işlemlerin arasında kalıyor, müşteri bulmakta zorlanabiliyor.&lt;br&gt;2) İade kargosu: etiket ve kod, siparişi teslim eden kargo firmasından bağımsız ilerliyor.&lt;br&gt;3) İade sebebi: sınırlı seçenek var, uygun sebep yoksa müşteri “Diğer”i seçiyor." style="text;html=1;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;rounded=1;spacing=10;" vertex="1" parent="1">
+          <mxGeometry x="40" y="680" width="1000" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lg1" value="Normal adım" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#F1EFE8;strokeColor=#5F5E5A;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="690" width="130" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="lg2" value="Sorun noktası" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;fillColor=#FCEBEB;strokeColor=#A32D2D;fontColor=#501313;strokeWidth=2;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="740" width="130" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
